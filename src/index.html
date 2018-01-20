@@ -6,9 +6,23 @@
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 <body>
-  <app-root>Loading...</app-root>
+  <my-app>Loading...</my-app> 
+  <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCOcz0ngb3FjpcEL9UUYuO8Ay2U6lVVn14",
+    authDomain: "mytunesvivek.firebaseapp.com",
+    databaseURL: "https://mytunesvivek.firebaseio.com",
+    projectId: "mytunesvivek",    
+    messagingSenderId: "829121441877"
+  };
+  firebase.initializeApp(config);
+</script>
+
 </body>
 </html>

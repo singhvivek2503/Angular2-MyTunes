@@ -1,0 +1,14 @@
+<ul class="media-list">
+    <li class="media" *ngFor="let album of albums" [routerLink]="['/album']" [queryParams]="{id:album.id}" >
+        <div class="media-left">
+            <a>
+                <img [src]="album.getImage(albumImageSize)" class="media-object">
+            </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">{{album.name |ellipsis:40}}</h4>
+            <p>{{album.artist}}</p>
+        </div>
+    </li>
+</ul>
+<pagination-component [pager]="pager" [pathName]="'albums'"></pagination-component>

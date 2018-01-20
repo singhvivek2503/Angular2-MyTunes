@@ -1,0 +1,12 @@
+<div class="jumbotron">
+    <h1>Welcome to MyTunes</h1>
+    <p></p>
+    <p>
+        <a class="btn btn-primary btn-lg" role="button" (click)="showMoreInfo(moreInfo)"
+        *ngIf="!moreInfo">Learn More</a>
+    </p>
+
+    <div *ngIf="moreInfo">
+        <p>Angular 2 application</p>
+    </div>
+</div>

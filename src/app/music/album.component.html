@@ -1,0 +1,19 @@
+<div *ngIf="album">
+    <div class="page-header">
+        <h1>{{album.name}} <small>{{album.artist}}</small> </h1>
+    </div>
+    <div class="media">
+        <div class="media-left">
+            <a href="#">
+                <img [src]="album.getImage(imageSize)" class="media-object">
+            </a>
+        </div>
+        <div class="media-body">
+            <ul>
+                <li *ngFor="let song of songs">
+                    {{song.name}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

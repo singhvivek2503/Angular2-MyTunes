@@ -1,0 +1,28 @@
+<nav class="navbar navbar-inverse header-component">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" 
+            data-target="#bs-Collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle Navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+        </div>
+        <form class="navbar-form navbar-left" role="search">
+            <search-component (queryChange)="search($event)" ></search-component>
+        </form>
+        <div class="collapse navbar-collapse" id="bs-Collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><button type="button" class="btn btn-info navbar-btn" *ngIf="!user"
+                    [routerLink]="['/login']">Login</button></li>
+                <li><button type="button" class="btn btn-success navbar-btn" *ngIf="!user"
+                    [routerLink]="['/registration']">Register</button></li>
+                <li><a href="#" *ngIf="user">{{user.email}}</a> </li>
+                <li><a href="#" *ngIf="user" (click)="logout()">{{user.email}}</a> </li>
+            </ul>
+        </div>
+
+    </div>
+
+</nav>
