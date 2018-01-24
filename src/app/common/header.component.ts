@@ -18,11 +18,13 @@ export class HeaderComponent {
     public  user:IUser; 
     constructor(private userService:UserService, private router:Router) {
         
-        this.user = this.userService.getUser();
-        // this.userService.getUser()
-        // .subscribe(user =>  {
-        //     this.user = user; 
-        // })
+        //this.user = this.userService.user;
+        
+        this.userService.getUser()
+        .subscribe(user =>  {
+            this.user = user; 
+        })
+        console.log(this.user);
     }
 
     search($event){

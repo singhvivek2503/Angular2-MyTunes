@@ -1,6 +1,6 @@
 import {BrowserModule }from '@angular/platform-browser'; 
 import {NgModule }from '@angular/core'; 
-import {FormsModule }from '@angular/forms'; 
+import {FormsModule, ReactiveFormsModule }from '@angular/forms'; 
 import {HttpModule }from '@angular/http'; 
 import {routing} from './app.routing'; 
 import {AppComponent }from './app.component'; 
@@ -18,6 +18,7 @@ import { MusicService } from 'app/music/services/music.srv';
 import { CountryService } from 'app/common/services/country.srv';
 import { ForRangeDirective } from './common/directives/forRange.directive';
 import { EllipsisPipe } from 'app/common/pipes/ellipsis.pipe';
+import { AuthGuard } from 'app/common/guards/authGuard';
 
 @NgModule( {
 declarations:[
@@ -38,9 +39,10 @@ imports:[
     BrowserModule, 
     FormsModule, 
     HttpModule, 
-    routing
+    routing,
+    ReactiveFormsModule
   ], 
-providers:[UserService,MusicService,CountryService], 
+providers:[UserService,MusicService,CountryService,AuthGuard], 
 bootstrap:[AppComponent],
 exports: [ForRangeDirective]
 })

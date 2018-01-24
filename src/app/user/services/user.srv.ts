@@ -7,41 +7,53 @@ declare var firebase:any;
 
 @Injectable()
 export class UserService {
-    firebaseUrl:string = 'https://mytunesvivek.firebaseio.com';
+    
+    public user:User;
+
     constructor() {}
 
-    getUser():User {
-        let authData = firebase.auth().currentUser; 
-        let user:User; 
-        if (authData) {
-            user = new User(authData); 
-        }
-        return user; 
-    }
-
-    login(userName:string, password:string):User {
-        let user:User; 
-        firebase.auth().signInWithEmailAndPassword(userName, password)
-        .then(authData => {
-            console.log(authData);
-            user = new User(authData)
-        })
-        .catch(function (error) {
-          console.log(error); 
-        }); 
-        return user; 
-    }
-
-    register(email:string, password:string, country?:string, birthday?:Date):any {
-        let authData;
-        console.log(email);
-        firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then(data=>authData=data)
-        .catch(function (error) {
-            console.log(error); 
+    getUser():Observable<any>  {
+        return new Observable(obs =>  {
+            firebase.auth().onAuthStateChanged(authData =>  {                 
+                 let authUser; 
+                 if (authData) {
+                    authUser = new User(authData);
+                    this.user = authUser;
+                 }
+                 obs.next(authUser); 
+            })
         });
+    }
+  
 
-        return authData;
+    login(userName:string, password:string):Promise <any>  {
+        const promise = new Promise((resolve, reject) =>  {
+            firebase.auth().signInWithEmailAndPassword(userName, password)
+            .then(authData =>  {
+                console.log(authData); 
+                const user = new User(authData);
+                this.user = user;
+                resolve(user); 
+            })
+            .catch(function (error) {
+              console.log(error); 
+              reject(error); 
+            }); 
+        })
+        
+        return promise; 
+    }
+
+    register(email:string, password:string, country?:string, birthday?:Date):Promise<any>  {
+        const promise = new Promise < any > ((resolve, reject) =>  {
+            firebase.auth().createUserWithEmailAndPassword(email, password)
+            .then(data => resolve(data))
+            .catch(function (error) {
+                console.log(error); 
+                reject(error); 
+            }); 
+        }); 
+        return promise; 
     }
     
     logout() {

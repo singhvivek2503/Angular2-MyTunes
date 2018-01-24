@@ -19,7 +19,7 @@
                 <li><button type="button" class="btn btn-success navbar-btn" *ngIf="!user"
                     [routerLink]="['/registration']">Register</button></li>
                 <li><a href="#" *ngIf="user">{{user.email}}</a> </li>
-                <li><a href="#" *ngIf="user" (click)="logout()">{{user.email}}</a> </li>
+                <li><a href="#" *ngIf="user" (click)="logout()">Logout</a> </li>
             </ul>
         </div>
 

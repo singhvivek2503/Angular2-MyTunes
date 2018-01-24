@@ -1,24 +1,22 @@
-<form #registrationForm="ngForm">
+<form [formGroup]="regForm" (ngSubmit)="register()">
     <div class="form-group">
-            <input type="text" placeholder="Email" class="form-control" required ngControl="email" #email/>
-            <div [hidden]="email.valid || email.pristine" class="alert alert-danger">Email required</div>
+            <input type="text" placeholder="Email" class="form-control" formControlName="email" #email/>
+            <div *ngIf="regForm.submitted && !regForm.controls['email'].valid" class="alert alert-danger">Email required</div>
     </div>
     
     <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" placeholder="Password" minlength="6" class="form-control" required ngControl="password" #password/>
-            <div [hidden]="password.valid || password.pristine" class="alert alert-danger">Password required</div>
+            <input type="password" placeholder="Password" minlength="6" class="form-control" formControlName="password" #password/>
+            <div *ngIf="regForm.submitted &&!regForm.controls['password'].valid" class="alert alert-danger">Password required</div>
     </div>
     <div class="form-group">
-        <select class="form-control" ngControl="country" #country>
+        <select class="form-control" formControlName="country" #country>
             <option value="">Select a country</option>
-            <option *ngFor="let c of countries" [value]="c.alpha2Code">{{c.name}}</option>
+            <option *ngFor="let c of countries" [value]="c.name">{{c.alpha2Code}}</option>
         </select>    
     </div>
     <div class="form-group">
-        <input type="date" ngControl="birthday" #birthday>
+        <input type="date" formControlName="birthday" #birthday>
     </div>
-    <button type="submit" class="btn btn-default" 
-    (click)="register(email.value,password.value,country.value,birthday.value)"
-    [disabled]="!registrationForm.form.valid">Register</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!regForm.valid">Register</button>
 </form>

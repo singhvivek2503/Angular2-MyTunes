@@ -1,5 +1,10 @@
+<div *ngIf="isLoading">
+    Loading Albums...
+</div>
+<div *ngIf="!isLoading">
 <ul class="media-list">
-    <li class="media" *ngFor="let album of albums" [routerLink]="['/album']" [queryParams]="{id:album.id}" >
+    <li class="media" *ngFor="let album of albums;let i=index;" [routerLink]="['/album']" [queryParams]="{id:album.id}">
+        <div class="media-left">{{i}}</div>
         <div class="media-left">
             <a>
                 <img [src]="album.getImage(albumImageSize)" class="media-object">
@@ -12,3 +17,4 @@
     </li>
 </ul>
 <pagination-component [pager]="pager" [pathName]="'albums'"></pagination-component>
+</div>

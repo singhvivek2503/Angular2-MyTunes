@@ -8,13 +8,14 @@ import { AlbumsComponent } from './music/albums.component';
 import { AlbumComponent } from './music/album.component';
 import { LoginComponent } from './user/login.component';
 import { RegistrationComponent } from './user/registration.component';
+import { AuthGuard } from './common/guards/authGuard';
 
 
 const APP_ROUTES: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: 'home', component: WelcomeComponent},
-  {path: 'albums', component: AlbumsComponent},
-  {path: 'album', component: AlbumComponent},
+  {path: 'home', component: WelcomeComponent,canActivate:[AuthGuard]},
+  {path: 'albums', component: AlbumsComponent,canActivate:[AuthGuard]},
+  {path: 'album', component: AlbumComponent,canActivate:[AuthGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'registration', component: RegistrationComponent},
 ];
