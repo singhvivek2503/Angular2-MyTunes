@@ -16,5 +16,5 @@ import { WelcomeComponent } from './common/welcome.component';
   styleUrls: ['./app.component.css']   
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'My Tunes App!';
 }
