@@ -13,7 +13,7 @@ import { AuthGuard } from './common/guards/authGuard';
 
 const APP_ROUTES: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: 'home', component: WelcomeComponent,canActivate:[AuthGuard]},
+  {path: 'home', component: WelcomeComponent},
   {path: 'albums', component: AlbumsComponent,canActivate:[AuthGuard]},
   {path: 'album', component: AlbumComponent,canActivate:[AuthGuard]},
   {path: 'login', component: LoginComponent},

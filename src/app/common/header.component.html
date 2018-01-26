@@ -10,7 +10,7 @@
             </button>
         </div>
         <form class="navbar-form navbar-left" role="search">
-            <search-component (queryChange)="search($event)" ></search-component>
+            <search-component *ngIf="user" (queryChange)="search($event)" ></search-component>
         </form>
         <div class="collapse navbar-collapse" id="bs-Collapse-1">
             <ul class="nav navbar-nav navbar-right">

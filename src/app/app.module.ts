@@ -19,6 +19,7 @@ import { CountryService } from 'app/common/services/country.srv';
 import { ForRangeDirective } from './common/directives/forRange.directive';
 import { EllipsisPipe } from 'app/common/pipes/ellipsis.pipe';
 import { AuthGuard } from 'app/common/guards/authGuard';
+import { HighlightDirective } from 'app/common/directives/highlight.directive';
 
 @NgModule( {
 declarations:[
@@ -33,6 +34,7 @@ declarations:[
     PaginationComponent,
     SearchComponent,
     ForRangeDirective,
+    HighlightDirective,
     EllipsisPipe
   ], 
 imports:[

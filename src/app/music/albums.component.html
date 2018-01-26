@@ -3,7 +3,8 @@
 </div>
 <div *ngIf="!isLoading">
 <ul class="media-list">
-    <li class="media" *ngFor="let album of albums;let i=index;" [routerLink]="['/album']" [queryParams]="{id:album.id}">
+    <li class="media" *ngFor="let album of albums;let i=index;trackBy:trackByFn" [routerLink]="['/album']"
+     [queryParams]="{id:album.id}" highlight [hoverColor]="'whitesmoke'">
         <div class="media-left">{{i}}</div>
         <div class="media-left">
             <a>
