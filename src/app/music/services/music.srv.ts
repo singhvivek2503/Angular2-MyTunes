@@ -21,7 +21,7 @@ export class MusicService{
     albumsSearch(query:string,page:number=0){
         return new Observable<any>(obs=>{
             let pageParam:number=page+1;
-            let url = "http://ws.audioscrobbler.com/2.0/?method=album.search&album="+query
+            let url = "https://ws.audioscrobbler.com/2.0/?method=album.search&album="+query
                         + "&page="+pageParam+"&api_key="+this.appId+'&format=json';
             this.http.get(url)
             .map(res=>{
@@ -50,7 +50,7 @@ export class MusicService{
 
     albumInfo(id:string){
         return new Observable<any>(obs=>{
-            let url = "http://ws.audioscrobbler.com/2.0/?method=album.getInfo&mbid="+id
+            let url = "https://ws.audioscrobbler.com/2.0/?method=album.getInfo&mbid="+id
                         + "&format=json&api_key="+this.appId;
             this.http.get(url)
             .map(res=>{
