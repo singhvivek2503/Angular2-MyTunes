@@ -13,7 +13,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build -prod"
+    "postinstall": "ng build --aot -prod",
+    "deploy": "git push origin master && git push heroku master"
   },
   "author": "VivekSingh",
   "private": true,
@@ -53,7 +54,7 @@
     "karma-cli": "~1.0.1",
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
-    "karma-jasmine-html-reporter": "^0.2.2",    
+    "karma-jasmine-html-reporter": "^0.2.2",
     "ts-node": "~3.2.0",
     "tslint": "~5.9.1",
     "webpack": "^3.10.0"

@@ -22,5 +22,5 @@ import {Component }from '@angular/core';
 
 })
 export class FooterComponent {
-    private year :number=(new Date()).getFullYear();
+    public year :number=(new Date()).getFullYear();
 }

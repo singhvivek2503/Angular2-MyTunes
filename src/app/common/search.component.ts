@@ -13,7 +13,7 @@ import {ISearchQuery} from './models/isearchquery';
 })
 export class SearchComponent{
     
-    @Input()query:string;
+    @Input()_query:string;
     @Output()queryChange=new EventEmitter();
     constructor(){}
 

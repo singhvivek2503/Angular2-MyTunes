@@ -16,7 +16,7 @@ export class AlbumsComponent implements OnInit {
     public albums:Array < IAlbum >= []; 
     public albumImageSize:AlbumImageSize = AlbumImageSize.MEDIUM; 
     public pager:IPager; 
-    private isLoading:boolean =true;
+    public isLoading:boolean =true;
     constructor(private musicService:MusicService, private route:ActivatedRoute) {}
 
     ngOnInit() {
