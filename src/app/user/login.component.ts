@@ -15,6 +15,11 @@ export class LoginComponent{
 
     public login(form:NgForm){        
         let user = this.userService.login(form.value.userName,form.value.password);
-        user.then(()=>this.router.navigateByUrl(""));
+        
+        user.then(()=>this.router.navigateByUrl(""))
+        .catch((e)=>{ 
+            console.log(e);
+            this.error = e.message;
+        });
     }
 }
